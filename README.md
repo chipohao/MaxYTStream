@@ -1,32 +1,24 @@
 # MaxTubeStream
 
-**MaxTubeStream** is a Max patch project that demonstrates how to stream YouTube videos directly in Max using Node for Max and the external command-line tool [yt-dlp](https://github.com/yt-dlp/yt-dlp). This project extracts direct streaming URLs from YouTube videos and routes them to Max’s playback objects, allowing you to bypass the standard YouTube player interface.
-
-## Features
-
-- **Direct Streaming:** Uses yt-dlp to extract direct MP4 streaming URLs from YouTube.
-- **Node for Max Integration:** Leverages Node for Max to run a custom Node.js script that fetches the URL.
-- **Flexible Output:** Supports combined audio-video streams as well as separate video and audio URLs.
-- **Ad-Free Playback:** By bypassing YouTube’s official player, the stream typically avoids embedded ads.
+MaxTubeStream is a simple Max patch that streams YouTube videos using Node for Max and yt‑dlp. It fetches a direct MP4 stream URL from a YouTube link and sends it to a jit.movie~ object for playback.
 
 ## Requirements
 
-- **Max 8 (or later)** with Node for Max enabled.
-- **yt-dlp** installed and accessible in your system’s PATH:
-  - **macOS:** Install via Homebrew  
-    ```bash
-    brew install yt-dlp
-    ```
-  - **Python:** Install via pip  
-    ```bash
-    pip install yt-dlp
-    ```
-- **Node.js:** The version bundled with Max is compatible.
+- **Max 8 or later** with Node for Max enabled.
+- **yt‑dlp** installed and accessible in your system’s PATH  
+  *(e.g., on macOS: `brew install yt-dlp` or via pip: `pip install yt-dlp`)*
+- **Node.js:** (the version bundled with Max works fine)
 
-## Installation & Setup
+## Setup
 
-1. **Clone the Repository:**
-
+1. Place the `watch-youtube.js` script in the same folder as your Max patch.
+2. In that folder, run:
    ```bash
-   git clone https://github.com/yourusername/MaxTubeStream.git
-   cd MaxTubeStream
+   npm install
+3. Open the Max patch and send an open <YouTube URL> message to the node.script object.
+
+## How It Works
+The Node script calls yt‑dlp to extract a direct streaming URL from the given YouTube link and outputs a message (e.g., combined_url <URL>) which is then routed (using objects like [route] and [prepend read]) to a jit.movie~ object for video playback.
+
+### License
+MIT License
