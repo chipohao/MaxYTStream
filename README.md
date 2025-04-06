@@ -1,29 +1,23 @@
-## YouTube Streaming in Max Patch
+# watch-youtube 
 
-This patch demonstrates how to stream YouTube videos directly in Max using Node for Max and an external command-line tool (yt‑dlp). The setup works as follows:
+Watch YouTube videos in Max 8
 
-### Node Script (watch-youtube.js):
+Note: Before you run this example, make sure that you run the npm install embedded into the patcher file, by clicking on the [script npm install] message.
 
-A Node for Max script calls yt‑dlp with the appropriate parameters (e.g. -f best[ext=mp4] -g) to extract a direct streaming URL from a given YouTube link.
+***
 
-The script outputs a message tagged combined_url if a merged audio-video stream is available. If separate streams are returned, it outputs video_url and audio_url.
+## Files 
 
-### Max Patch Setup:
+`watch-youtube.maxpat` : The Max patch to run the example.<br />
+`watch-youtube.js` : The launcher JS for the NodeJS script.<br />
+`package.json` : The Node package file.<br />
+`package-lock.json` : The Node package lock file.<br />
+`README.md` : This file!<br />
 
-A node.script object loads the watch-youtube.js script.
 
-An open message (e.g. open https://youtu.be/your_video) triggers the Node script.
+## Usage
 
-Use a route combined_url object to filter the output, then pass it through a prepend read object to format the message as read <URL>.
-
-The resulting message is sent to a jit.movie~ object, which plays the video stream.
-
-Connect jit.movie~'s video output to a display object (such as jit.pwindow) and its audio output to your MSP chain.
-
-### Requirements
-Max 8 or later with Node for Max enabled.
-
-yt‑dlp installed and accessible in your system’s PATH (e.g., via Homebrew or pip).
-
-Node.js (the version bundled with Max is compatible).
-
+1. Launch the `watch-youtube.maxpat` Max patch.
+2. (First time only...) Click on the [script npm install] message at the lower-right to load the required packages and libraries.
+3. Click on the [script start] message at the top-left to start the Node process running.
+4. Just paste any valid youtube URL in the [open] message, and click it.

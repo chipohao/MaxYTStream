@@ -1,0 +1,14 @@
+{
+  "name": "watch-youtube-videos",
+  "version": "1.0.0",
+  "description": "Node for Max script using yt-dlp to fetch YouTube video URLs",
+  "main": "watch-youtube.js",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "author": "POHAO CHI",
+  "license": "MIT",
+  "dependencies": {
+
+  }
+}
