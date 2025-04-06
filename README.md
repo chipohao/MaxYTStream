@@ -1,23 +1,32 @@
-# watch-youtube 
+# MaxTubeStream
 
-Watch YouTube videos in Max 8
+**MaxTubeStream** is a Max patch project that demonstrates how to stream YouTube videos directly in Max using Node for Max and the external command-line tool [yt-dlp](https://github.com/yt-dlp/yt-dlp). This project extracts direct streaming URLs from YouTube videos and routes them to Max’s playback objects, allowing you to bypass the standard YouTube player interface.
 
-Note: Before you run this example, make sure that you run the npm install embedded into the patcher file, by clicking on the [script npm install] message.
+## Features
 
-***
+- **Direct Streaming:** Uses yt-dlp to extract direct MP4 streaming URLs from YouTube.
+- **Node for Max Integration:** Leverages Node for Max to run a custom Node.js script that fetches the URL.
+- **Flexible Output:** Supports combined audio-video streams as well as separate video and audio URLs.
+- **Ad-Free Playback:** By bypassing YouTube’s official player, the stream typically avoids embedded ads.
 
-## Files 
+## Requirements
 
-`watch-youtube.maxpat` : The Max patch to run the example.<br />
-`watch-youtube.js` : The launcher JS for the NodeJS script.<br />
-`package.json` : The Node package file.<br />
-`package-lock.json` : The Node package lock file.<br />
-`README.md` : This file!<br />
+- **Max 8 (or later)** with Node for Max enabled.
+- **yt-dlp** installed and accessible in your system’s PATH:
+  - **macOS:** Install via Homebrew  
+    ```bash
+    brew install yt-dlp
+    ```
+  - **Python:** Install via pip  
+    ```bash
+    pip install yt-dlp
+    ```
+- **Node.js:** The version bundled with Max is compatible.
 
+## Installation & Setup
 
-## Usage
+1. **Clone the Repository:**
 
-1. Launch the `watch-youtube.maxpat` Max patch.
-2. (First time only...) Click on the [script npm install] message at the lower-right to load the required packages and libraries.
-3. Click on the [script start] message at the top-left to start the Node process running.
-4. Just paste any valid youtube URL in the [open] message, and click it.
+   ```bash
+   git clone https://github.com/yourusername/MaxTubeStream.git
+   cd MaxTubeStream
