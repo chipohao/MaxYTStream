@@ -15,7 +15,11 @@ MaxTubeStream is a simple Max patch that streams YouTube videos using Node for M
 2. In that folder, run:
    ```bash
    npm install
-3. Open the Max patch and send an open 'YouTube URL' message to the node.script object.
+   ```
+3. Open the Max patch and send a message to the `node.script` object in the following format:
+   ```none
+   open https://youtu.be/your_video
+   ```
 
 ## How It Works
 The Node script calls yt‑dlp to extract a direct streaming URL from the given YouTube link and outputs a message (e.g., combined_url <URL>) which is then routed (using objects like [route] and [prepend read]) to a jit.movie~ object for video playback.
